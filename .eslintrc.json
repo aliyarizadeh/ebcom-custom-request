@@ -1,0 +1,26 @@
+{
+    "env": {
+        "browser": false,
+        "commonjs": true,
+        "es2021": true,
+        "node": true,
+        "jest": true
+    },
+    "extends": [
+        "airbnb/base",
+        "plugin:security/recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": false
+        }
+    },
+    "rules": {
+        "no-console": "off",
+        "max-len": "off",
+        "camelcase": "off",
+        "semi": "error"
+    }
+}

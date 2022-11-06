@@ -1,0 +1,71 @@
+{
+  "_from": "@ebcom/custom-request@^1.0.1",
+  "_id": "@ebcom/custom-request@1.1.2",
+  "_inBundle": false,
+  "_integrity": "sha512-BEXh/DdJxSf38Pt+1iHh7tDr9TGIbC75rF5OYaySkOLtTSrIgkJc0sgjLbNShORMMpVzZmnYlZH8upVZhAoqYw==",
+  "_location": "/@ebcom/custom-request",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@ebcom/custom-request@^1.0.1",
+    "name": "@ebcom/custom-request",
+    "escapedName": "@ebcom%2fcustom-request",
+    "scope": "@ebcom",
+    "rawSpec": "^1.0.1",
+    "saveSpec": null,
+    "fetchSpec": "^1.0.1"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@ebcom/custom-request/-/custom-request-1.1.2.tgz",
+  "_shasum": "f586fd990165327890b031c614118e4207336165",
+  "_spec": "@ebcom/custom-request@^1.0.1",
+  "_where": "/home/ali/Desktop/ebcom/microservices/survey-core-service/src",
+  "author": {
+    "name": "Ali Yarizadeh"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "got": "^11.0.0",
+    "hpagent": "^1.1.0",
+    "http2": "^3.3.7",
+    "http2-wrapper": "^1.0.3",
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.8"
+  },
+  "deprecated": false,
+  "description": "this module use 3 module:",
+  "devDependencies": {
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-security": "^1.4.0",
+    "express": "^4.18.0",
+    "jest": "^27.5.1",
+    "npm": "^8.7.0",
+    "prettier": "^2.6.2"
+  },
+  "engines": {
+    "node": ">=14.0.0 <17.0.0"
+  },
+  "keywords": [
+    "request",
+    "got",
+    "http2"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "@ebcom/custom-request",
+  "scripts": {
+    "test": "node ./test/backend & jest ./test/index.test.js"
+  },
+  "version": "1.1.3"
+}
