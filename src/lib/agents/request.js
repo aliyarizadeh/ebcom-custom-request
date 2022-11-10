@@ -1,8 +1,7 @@
 const request = require('request-promise-native');
 const config = require('../../config');
 
-module.exports = async (params, http2 /** Http2 not use in this agent */, method) => {
-  // console.log(config.defaults);
+module.exports = async (params, http2 /** Http2 not use in this agent */, method, logger) => {
   const options = {
     ...config.defaults,
     ...params,
@@ -10,7 +9,7 @@ module.exports = async (params, http2 /** Http2 not use in this agent */, method
   };
   delete options.agent;
 
-  console.log(options);
   const response = await request(options);
+  // TODO add logger and customize options
   return response;
 };

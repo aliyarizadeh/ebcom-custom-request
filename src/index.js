@@ -2,39 +2,39 @@ const config = require('./config');
 const { agents, validation } = require('./lib');
 
 const methods = {
-  get: async (params, http2 = config.http2.default, agent = config.agents.default) => {
-    validation(params, http2, agent.toLowerCase());
+  get: async (params, http2 = config.http2.default, agent = config.agents.default, logger = undefined) => {
+    validation(params, http2, agent.toLowerCase(), logger);
     const response = await agents[agent.toLowerCase()](params, http2, 'GET');
     return response;
   },
 
-  post: async (params, http2 = config.http2.default, agent = config.agents.default) => {
-    validation(params, http2, agent.toLowerCase());
-    const response = await agents[agent.toLowerCase()](params, http2, 'POST');
+  post: async (params, http2 = config.http2.default, agent = config.agents.default, logger = undefined) => {
+    validation(params, http2, agent.toLowerCase(), logger);
+    const response = await agents[agent.toLowerCase()](params, http2, 'POST', logger);
     return response;
   },
 
-  put: async (params, http2 = config.http2.default, agent = config.agents.default) => {
-    validation(params, http2, agent.toLowerCase());
-    const response = await agents[agent.toLowerCase()](params, http2, 'PUT');
+  put: async (params, http2 = config.http2.default, agent = config.agents.default, logger = undefined) => {
+    validation(params, http2, agent.toLowerCase(), logger);
+    const response = await agents[agent.toLowerCase()](params, http2, 'PUT', logger);
     return response;
   },
 
-  patch: async (params, http2 = config.http2.default, agent = config.agents.default) => {
-    validation(params, http2, agent.toLowerCase());
-    const response = await agents[agent.toLowerCase()](params, http2, 'PATCH');
+  patch: async (params, http2 = config.http2.default, agent = config.agents.default, logger = undefined) => {
+    validation(params, http2, agent.toLowerCase(), logger);
+    const response = await agents[agent.toLowerCase()](params, http2, 'PATCH', logger);
     return response;
   },
 
-  head: async (params, http2 = config.http2.default, agent = config.agents.default) => {
-    validation(params, http2, agent.toLowerCase());
-    const response = await agents[agent.toLowerCase()](params, http2, 'HEAD');
+  head: async (params, http2 = config.http2.default, agent = config.agents.default, logger = undefined) => {
+    validation(params, http2, agent.toLowerCase(), logger);
+    const response = await agents[agent.toLowerCase()](params, http2, 'HEAD', logger);
     return response;
   },
 
-  delete: async (params, http2 = config.http2.default, agent = config.agents.default) => {
-    validation(params, http2, agent.toLowerCase());
-    const response = await agents[agent.toLowerCase()](params, http2, 'DELETE');
+  delete: async (params, http2 = config.http2.default, agent = config.agents.default, logger = undefined) => {
+    validation(params, http2, agent.toLowerCase(), logger);
+    const response = await agents[agent.toLowerCase()](params, http2, 'DELETE', logger);
     return response;
   },
 

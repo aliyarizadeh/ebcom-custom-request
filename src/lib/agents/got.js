@@ -52,7 +52,7 @@ const setHttpsAgent = (proxy) => ({
   }),
 });
 
-module.exports = async (params, http2, method) => {
+module.exports = async (params, http2, method, logger) => {
   let response;
 
   const options = {
@@ -88,6 +88,8 @@ module.exports = async (params, http2, method) => {
   try {
     response = await got(options);
 
+    if (logger) logger(response, headers.transactionId);
+  
     if (params.throwErrors) {
       if (options.resolveBodyOnly) {
         if (response.code && response.message) throw new ProviderError(response.code, response.message);
