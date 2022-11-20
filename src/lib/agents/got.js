@@ -18,8 +18,7 @@ const authorization = (auth) => {
       Authorization: `Basic ${Buffer.from(`${auth.user}:${auth.pass}`).toString('base64')}`,
     };
   } else if (obj.includes('bearer') && typeof auth.bearer === 'string') {
-
-    let [, token] = auth.bearer.split(' ');
+    const [, token] = auth.bearer.split(' ');
     headers = {
       'user-agent': 'Custom-Request EBCOM',
       Authorization: token ? auth.bearer : `Bearer ${auth.bearer}`,
@@ -63,7 +62,7 @@ module.exports = async (params, http2, method, logger) => {
     headers: params.headers || {},
     agent: {},
     throwHttpErrors: false,
-    resolveBodyOnly: params.bodyOnly ?? false,
+    resolveBodyOnly: false,
     https: params.https || undefined,
     json: params.body && typeof params.body === 'object' ? params.body : undefined,
     form: params.form && typeof params.form === 'object' ? params.form : undefined,
@@ -88,18 +87,19 @@ module.exports = async (params, http2, method, logger) => {
   try {
     response = await got(options);
 
-    if (logger) logger(response, headers.transactionId);
-  
+    if (logger) logger(response, options.headers.transactionId);
+
     if (params.throwErrors) {
-      if (options.resolveBodyOnly) {
-        if (response.code && response.message) throw new ProviderError(response.code, response.message);
-        return response;
-      } else {
-        if (response?.body?.code && response?.body?.message) throw new ProviderError(response.body.code, response.body.message);
+      if (response.statusCode >= 100 && response.statusCode < 400) {
+        if (params.bodyOnly) return response?.body;
         return response;
       }
-    } else return response;
-
+      if (response?.body?.code && response?.body?.message) throw new ProviderError(response.statusCode, response?.body?.code, response?.body?.message);
+      throw new ProviderError(response.statusCode, undefined, response.statusMessage);
+    } else {
+      if (params.bodyOnly) return response.body;
+      return response;
+    }
   } catch (e) {
     if (['ETIMEDOUT', 'ECONNRESET', 'ESOCKETTIMEDOUT'].includes(e.code)) Object.assign(e, { error: { code: e.code } });
     throw e;

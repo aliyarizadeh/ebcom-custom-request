@@ -1,7 +1,8 @@
 class ProviderError extends Error {
-  constructor(code, message) {
+  constructor(statusCode, code, message) {
     super();
     if (code) this.code = code;
+    if (statusCode) this.statusCode = statusCode;
     if (message) this.message = message;
   }
 }

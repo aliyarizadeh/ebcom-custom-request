@@ -20,6 +20,7 @@
     "#USER",
     "/"
   ],
+  "homepage": "https://github.com/alitigerk9/ebcom-custom-request",
   "_resolved": "https://registry.npmjs.org/@ebcom/custom-request/-/custom-request-1.1.2.tgz",
   "_shasum": "f586fd990165327890b031c614118e4207336165",
   "_spec": "@ebcom/custom-request@^1.0.1",
