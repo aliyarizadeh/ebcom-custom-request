@@ -51,7 +51,7 @@ const setHttpsAgent = (proxy) => ({
   }),
 });
 
-module.exports = async (params, http2, method, logger) => {
+module.exports = async (params, method, logger) => {
   let response;
 
   const options = {
@@ -73,7 +73,7 @@ module.exports = async (params, http2, method, logger) => {
     encoding: params.encoding || undefined,
     responseType: params.json === true ? 'json' : 'text',
     context: params.context || undefined,
-    http2,
+    http2: params.http2 ?? undefined,
   };
 
   if (params.auth) Object.assign(options.headers, authorization(params.auth));

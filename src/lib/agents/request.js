@@ -10,6 +10,8 @@ module.exports = async (params, http2 /** Http2 not use in this agent */, method
   delete options.agent;
 
   const response = await request(options);
-  // TODO add logger and customize options
+
+  if (logger) logger(response, options.headers.transactionId);
+
   return response;
 };
