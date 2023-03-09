@@ -51,7 +51,7 @@ const setHttpsAgent = (proxy) => ({
   }),
 });
 
-module.exports = async (params, method) => {
+module.exports = async (params, method, logger) => {
   let response;
 
   const options = {
@@ -87,7 +87,7 @@ module.exports = async (params, method) => {
   try {
     response = await got(options);
 
-    if (params.log) logger(response, params.options.transactionId);
+    if (logger) logger(response, params.transactionId);
 
     if (params.throwErrors) {
       if (response.statusCode >= 100 && response.statusCode < 400) {
