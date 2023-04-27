@@ -55,7 +55,7 @@
     "prettier": "^2.6.2"
   },
   "engines": {
-    "node": ">=14.0.0 <17.0.0"
+    "node": ">=14.0.0 <20.0.0"
   },
   "keywords": [
     "request",
