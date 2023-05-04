@@ -3,38 +3,38 @@ const { agents, validation } = require('./lib');
 
 const methods = {
   get: async (params, agent = config.agents.default) => {
-    validation(params, agent.toLowerCase(), params.log);
-    const response = await agents[agent.toLowerCase()](params, 'GET', params.log);
+    validation(params, agent.toLowerCase(), params?.options?.log);
+    const response = await agents[agent.toLowerCase()](params, 'GET', params?.options?.log);
     return response;
   },
 
   post: async (params, agent = config.agents.default) => {
-    validation(params, agent.toLowerCase(), params.log);
-    const response = await agents[agent.toLowerCase()](params, 'POST', params.log);
+    validation(params, agent.toLowerCase(), params?.options?.log);
+    const response = await agents[agent.toLowerCase()](params, 'POST', params?.options?.log);
     return response;
   },
 
   put: async (params, agent = config.agents.default) => {
-    validation(params, agent.toLowerCase(), params.log);
-    const response = await agents[agent.toLowerCase()](params, 'PUT', params.log);
+    validation(params, agent.toLowerCase(), params?.options?.log);
+    const response = await agents[agent.toLowerCase()](params, 'PUT', params?.options?.log);
     return response;
   },
 
   patch: async (params, agent = config.agents.default) => {
-    validation(params, agent.toLowerCase(), params.log);
-    const response = await agents[agent.toLowerCase()](params, 'PATCH', params.log);
+    validation(params, agent.toLowerCase(), params?.options?.log);
+    const response = await agents[agent.toLowerCase()](params, 'PATCH', params?.options?.log);
     return response;
   },
 
   head: async (params, agent = config.agents.default) => {
-    validation(params, agent.toLowerCase(), params.log);
-    const response = await agents[agent.toLowerCase()](params, 'HEAD', params.log);
+    validation(params, agent.toLowerCase(), params?.options?.log);
+    const response = await agents[agent.toLowerCase()](params, 'HEAD', params?.options?.log);
     return response;
   },
 
   delete: async (params, agent = config.agents.default) => {
-    validation(params, agent.toLowerCase(), params.log);
-    const response = await agents[agent.toLowerCase()](params, 'DELETE', params.log);
+    validation(params, agent.toLowerCase(), params?.options?.log);
+    const response = await agents[agent.toLowerCase()](params, 'DELETE', params?.options?.log);
     return response;
   },
 

@@ -87,7 +87,7 @@ module.exports = async (params, method, logger) => {
   try {
     response = await got(options);
 
-    if (logger) logger(response, params.transactionId);
+    if (logger) logger(response, params.headers.transactionId);
 
     if (params.throwErrors) {
       if (response.statusCode >= 100 && response.statusCode < 400) {
