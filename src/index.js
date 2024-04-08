@@ -40,6 +40,7 @@ const methods = {
 
 };
 
+
 const defaults = (params) => {
   if (params.agent) config.agents.default = params.agent;
   if (params.http2) config.http2.default = params.http2;
